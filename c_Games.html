@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Games</title>
+
+
+    <link rel="icon" type="image/png" href="../Demo_site/Multimedia/Screenshot 2026-03-05 004217.png">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        prism: {
+                            bg: '#Aff4c6',
+                            text: '#093c2a',
+                            btn: '#093c2a',
+                            lime: '#bfff00',
+                            floatDark: '#415e52',
+                            floatLight: '#dcfce7',
+                            neon: '#39FF14',
+                            batman: '#1a1a1a'
+                        },
+                        primary: '#093c2a',
+                        background: '#Aff4c6',
+                        "on-surface": '#093c2a'
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        headline: ['Outfit', 'sans-serif'],
+                        body: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .strip-bg {
+            background-color: #050505;
+            background-image:
+                linear-gradient(90deg, transparent 0%, transparent 45%, #0F1A0E 45%, #0F1A0E 47%, transparent 47%, transparent 70%, #0F1A0E 70%, #0F1A0E 74%, transparent 74%),
+                linear-gradient(90deg, transparent 0%, transparent 10%, #0F1A0E 10%, #0F1A0E 11%, transparent 11%, transparent 85%, #0F1A0E 85%, #0F1A0E 88%, transparent 88%);
+            background-size: 400px 100%, 700px 100%;
+        }
+
+        /* Marquee infinite scroll */
+        @keyframes marquee-scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+        }
+
+        .marquee-track > div {
+            margin-right: 2rem;
+        }
+
+        .marquee-animate {
+            animation: marquee-scroll 30s linear infinite;
+        }
+
+        .marquee-animate:hover {
+            animation-play-state: paused;
+        }
+
+        /* Brand gradient shine animation (from main site) */
+        .brand-text {
+            background: linear-gradient(#d5d6d0 50%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: brand-shine 4s linear infinite;
+        }
+
+        @keyframes brand-shine {
+            0% {
+                background-position: 0% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        /* Neon pulse glow (from main site) */
+        .brand-neon {
+            animation: neon-pulse 3s infinite ease-in-out;
+        }
+
+        @keyframes neon-pulse {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 6px rgba(161, 212, 148, 0.4)) drop-shadow(0 0 12px rgba(161, 212, 148, 0.2));
+            }
+
+            50% {
+                filter: drop-shadow(0 0 14px rgba(161, 212, 148, 0.7)) drop-shadow(0 0 28px rgba(161, 212, 148, 0.4));
+            }
+        }
+
+        /* Glitch skew animation (from main site) */
+        .glitch-text {
+            position: relative;
+            display: inline-block;
+            animation: glitch-skew 4s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-skew {
+
+            0%,
+            100% {
+                transform: skew(0deg);
+            }
+
+            20% {
+                transform: skew(-2deg);
+            }
+
+            21% {
+                transform: skew(2deg);
+            }
+
+            25% {
+                transform: skew(0deg);
+            }
+        }
+
+        /* Logo SVG hover rotation */
+        .logo-group:hover .logo-svg {
+            transform: rotate(180deg);
+        }
+
+        .logo-svg {
+            transition: transform 0.7s ease;
+        }
+
+        /* Subtle slide-in for the navbar logo */
+        @keyframes logo-slide-in {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .logo-animate {
+            animation: logo-slide-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
+</head>
+
+<body class="bg-prism-bg text-prism-text font-sans min-h-screen">
+    <!-- TopNavBar -->
+    <nav
+        class="bg-black/90 backdrop-blur-sm fixed top-0 w-full border-b border-green-900/30 flex justify-between items-center px-6 md:px-10 py-4 z-50">
+        <!-- Logo (copied from NIApoliton main site with its animation) -->
+        <div class="flex items-center space-x-2 cursor-pointer logo-group logo-animate">
+            <svg class="h-8 logo-svg brand-neon" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="10" width="4" height="30" rx="2" fill="#a1d494" />
+                <rect x="13" y="15" width="4" height="20" rx="2" fill="#a1d494" />
+                <rect x="21" y="8" width="4" height="34" rx="2" fill="#a1d494" />
+                <path d="M29 15 C38 15, 38 35, 29 35" stroke="#a1d494" stroke-width="4" stroke-linecap="round" />
+            </svg>
+            <span class="text-xl font-bold tracking-tight mt-1 brand-text ml-1 font-['Outfit'] glitch-text"
+                data-text="NIApoliton">NIApoliton</span>
+        </div>
+
+        <!-- Right side nav items -->
+        <div class="flex items-center gap-6 ">
+            <span
+                class="font-['Space_Grotesk'] uppercase tracking-[0.25em] text-xs text-primary/60 hidden md:block text-white ">Back to Home</span>
+            <a href="b_Niapoliton_Site.html"
+                class="w-10 h-10 rounded-full bg-white/5 border border-white/10 text-primary flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 active:scale-90 text-white"
+                title="Back to Home">
+                <i class="fas fa-arrow-left text-sm"></i>
+            </a>
+        </div>
+    </nav>
+    <main
+        class="pt-32 pb-20 px-4 md:px-10 max-w-8xl mx-auto min-h-[calc(100vh-80px)] flex flex-col items-center justify-center">
+        <!-- Centerpiece Rectangle -->
+        <div
+            class="w-full h-[520px] bg-white/40 backdrop-blur-sm border border-prism-text/10  relative overflow-hidden flex flex-col shadow-2xl">
+            <!-- Header for Container -->
+            <div class="p-6 border-b border-prism-text/5 flex justify-between items-end">
+                <div>
+                    <h1 class="text-4xl font-bold text-prism-text uppercase tracking-tight font-sans">Available
+                        Games</h1>
+                    <p class="text-xs text-prism-text/60 uppercase tracking-[0.2em] mt-2 font-sans">Real-time Games
+                        simulations</p>
+                </div>
+            </div>
+
+
+            <!-- Product Feed (Infinite Style Scroll Area) -->
+            <div class="flex-1 overflow-hidden flex items-center relative">
+                <!-- Coming Soon Blur Overlay -->
+                <div
+                    class="absolute inset-0 z-40 backdrop-blur-[5px] bg-prism-bg/40 flex flex-col items-center justify-center">
+                    <h2
+                        class="text-6xl md:text-8xl font-bold font-sans uppercase tracking-tighter text-prism-text select-none drop-shadow-sm">
+                        Coming Soon</h2>
+                    <div
+                        class="h-1.5 w-24 bg-prism-lime rounded-full mt-8 animate-pulse shadow-[0_0_15px_rgba(191,255,0,0.5)]">
+                    </div>
+                    <p
+                        class="text-sm md:text-lg text-prism-text/50 font-sans uppercase tracking-[0.4em] mt-6 font-medium">
+                        Expansion in Progress</p>
+                </div>
+
+                <div class="marquee-track" id="marquee-track">
+
+                    <!-- Original product -->
+                    <!-- Product Card 1 -->
+                    <div
+                        class="min-w-[350px] h-[400px] bg-[#f2fff6] border border-prism-bg rounded-[2rem] flex flex-col group hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="h-48 overflow-hidden rounded-t-[2rem] bg-white">
+                            <img alt="Module_X1"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 opacity-60 group-hover:opacity-100"
+                                data-alt="Technical hardware components and retro processors arranged on a dark industrial surface with green neon lighting accents"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCzxW1-bzNjA6-veURlY75fcXAVsWeHdSpGa_8tO-1BBAIVxeRUgs2hnilYS-yXqdGraS5497X9lIJ7AjjLHBjzOFiBvoqpx34lJt4F1t6Z7bjwzEFpiv5dGooPeV0pIiG0KZ6lVkN3Q3wD2I1XFpNcGTtbB8a9hZKHvzKyvPi7F_I8x9aTTZ9cKjedKl2jho8ZRuJFt2Fm3YUL2usMmRAZr40ddsjkcJshG54Ra5L71lSwLkQqmefWQ6UNspaMuyqtxXiEjim3Bkj" />
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-2xl font-bold text-prism-text uppercase font-sans">Game-1</h3>
+                                    <span
+                                        class="text-[10px] font-bold px-3 py-1 bg-prism-lime/30 text-prism-text rounded-full uppercase tracking-widest">CLASS
+                                        A</span>
+                                </div>
+                                <p class="text-sm text-prism-text/70 leading-tight font-sans">High-frequency
+                                    processing unit for deep-recon operations.</p>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-prism-text">FREE</span>
+                                <button
+                                    class="bg-prism-btn px-6 py-2 rounded-full text-white font-bold text-sm uppercase hover:bg-prism-lime hover:text-prism-btn transition-all duration-300 active:scale-95 shadow-md font-sans">Play
+                                    Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 2 -->
+                    <div
+                        class="min-w-[350px] h-[400px] bg-[#f2fff6] border border-prism-bg rounded-[2rem] flex flex-col group hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="h-48 overflow-hidden rounded-t-[2rem] bg-white">
+                            <img alt="Relay_Z"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 opacity-60 group-hover:opacity-100"
+                                data-alt="Close up macro shot of a complex circuit board with glowing green light paths and metallic components"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCzxW1-bzNjA6-veURlY75fcXAVsWeHdSpGa_8tO-1BBAIVxeRUgs2hnilYS-yXqdGraS5497X9lIJ7AjjLHBjzOFiBvoqpx34lJt4F1t6Z7bjwzEFpiv5dGooPeV0pIiG0KZ6lVkN3Q3wD2I1XFpNcGTtbB8a9hZKHvzKyvPi7F_I8x9aTTZ9cKjedKl2jho8ZRuJFt2Fm3YUL2usMmRAZr40ddsjkcJshG54Ra5L71lSwLkQqmefWQ6UNspaMuyqtxXiEjim3Bkj" />
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-2xl font-bold text-prism-text uppercase font-sans">GAME-2</h3>
+                                    <span
+                                        class="text-[10px] font-bold px-3 py-1 bg-prism-lime/30 text-prism-text rounded-full uppercase tracking-widest">CLASS-B</span>
+                                </div>
+                                <p class="text-sm text-prism-text/70 leading-tight font-sans">Encrypted data relay for
+                                    long-range tactical communication.</p>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-prism-text">FREE</span>
+                                <button
+                                    class="bg-prism-btn px-6 py-2 rounded-full text-white font-bold text-sm uppercase hover:bg-prism-lime hover:text-prism-btn transition-all duration-300 active:scale-95 shadow-md font-sans">Play
+                                    Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 3 -->
+                    <div
+                        class="min-w-[350px] h-[400px] bg-[#f2fff6] border border-prism-bg rounded-[2rem] flex flex-col group hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="h-48 overflow-hidden rounded-t-[2rem] bg-white">
+                            <img alt="Storage_Pod"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 opacity-60 group-hover:opacity-100"
+                                data-alt="Sleek dark futuristic server hardware in a server room with dim forest green ambient lighting"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4Xg86mKjZ2A-DrpxY_U5_WY_IdAPLqdhZ0JujEEh88Y9Equml53Cv9Xqah424LdOWhfswtSBcnHKj9Wc_V8oyvLQZLymyYihT1oSnwSMQAFKVdV67w0jc1LYGhl7SEeS_hjswpdsj7lZm8TJmdCxnhXHUJ4S8tlPZ2d6gZNa0SUU5RKvKvGLKxWaOwl7HkcnxgFTA12G-EckSX9Lq64o-QnNJ23Gq8B9DBBPk6qnJY6cnfWEabVB6n7QCzUE1QfMjnqUsQU8YuW28" />
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-2xl font-bold text-prism-text uppercase font-sans">GAME-3</h3>
+                                    <span
+                                        class="text-[10px] font-bold px-3 py-1 bg-prism-lime/30 text-prism-text rounded-full uppercase tracking-widest">CLASS-C</span>
+                                </div>
+                                <p class="text-sm text-prism-text/70 leading-tight font-sans">Biometric-locked storage
+                                    unit for sensitive recon data.</p>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-prism-text">FREE</span>
+                                <button
+                                    class="bg-prism-btn px-6 py-2 rounded-full text-white font-bold text-sm uppercase hover:bg-prism-lime hover:text-prism-btn transition-all duration-300 active:scale-95 shadow-md font-sans">Play
+                                    Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 4 -->
+                    <div
+                        class="min-w-[350px] h-[400px] bg-[#f2fff6] border border-prism-bg rounded-[2rem] flex flex-col group hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="h-48 overflow-hidden rounded-t-[2rem] bg-white">
+                            <img alt="Sensor_Array"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 opacity-60 group-hover:opacity-100"
+                                data-alt="Highly detailed industrial machinery part with precise metallic edges and green laser measurement light"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK_QYGjKmkXBy11lhQUMNjz4VjoJphW218FDz1JG-fpg3CWPlhpfpKWjX-J0l-DZkuPQ8Owmbwo13MyQ78GNpK0wN8Wbqt-_HYVcpvxZQ9N_Uc_uX52XTIIt-fzbllVc1J_WywtqEzBAb3j1C5J7t0qvxQO1DpPgmvzf285Jq1s1H6UR_NiL227OGfp32jF0BllKwCAq0JiCyhvj6kHSSESIMabCX5VT6rKSWkRvs_xyz2UN-bdXqw4gy8xjWDV9Fd4F5G41iJBGPJ" />
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-2xl font-bold text-prism-text uppercase font-sans">GAME-4</h3>
+                                    <span
+                                        class="text-[10px] font-bold px-3 py-1 bg-prism-lime/30 text-prism-text rounded-full uppercase tracking-widest">CLASS-D</span>
+                                </div>
+                                <p class="text-sm text-prism-text/70 leading-tight font-sans">Advanced multi-spectrum
+                                    sensory array for perimeter scan.</p>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-prism-text">FREE</span>
+                                <button
+                                    class="bg-prism-btn px-6 py-2 rounded-full text-white font-bold text-sm uppercase hover:bg-prism-lime hover:text-prism-btn transition-all duration-300 active:scale-95 shadow-md font-sans">Play
+                                    Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 5 (Loop Repeat) -->
+                    <div
+                        class="min-w-[350px] h-[400px] bg-[#f2fff6] border border-prism-bg rounded-[2rem] flex flex-col group hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="h-48 overflow-hidden rounded-t-[2rem] bg-white">
+                            <img alt="Module_X1_Alt"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 opacity-60 group-hover:opacity-100"
+                                data-alt="Electronic motherboard close up with dark aesthetic and neon green indicators"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCzxW1-bzNjA6-veURlY75fcXAVsWeHdSpGa_8tO-1BBAIVxeRUgs2hnilYS-yXqdGraS5497X9lIJ7AjjLHBjzOFiBvoqpx34lJt4F1t6Z7bjwzEFpiv5dGooPeV0pIiG0KZ6lVkN3Q3wD2I1XFpNcGTtbB8a9hZKHvzKyvPi7F_I8x9aTTZ9cKjedKl2jho8ZRuJFt2Fm3YUL2usMmRAZr40ddsjkcJshG54Ra5L71lSwLkQqmefWQ6UNspaMuyqtxXiEjim3Bkj" />
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-2xl font-bold text-prism-text uppercase font-sans">GAME-5</h3>
+                                    <span
+                                        class="text-[10px] font-bold px-3 py-1 bg-prism-lime/30 text-prism-text rounded-full uppercase tracking-widest">CLASS-E</span>
+                                </div>
+                                <p class="text-sm text-prism-text/70 leading-tight font-sans">Secondary power
+                                    management unit for field operations.</p>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-prism-text">FREE</span>
+                                <button
+                                    class="bg-prism-btn px-6 py-2 rounded-full text-white font-bold text-sm uppercase hover:bg-prism-lime hover:text-prism-btn transition-all duration-300 active:scale-95 shadow-md font-sans">Play
+                                    Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+        <!-- Footer Component (matching main site theme) -->
+        <footer class="bg-prism-btn w-full border-t border-prism-text/10 py-10 px-6 md:px-10">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center space-x-3">
+                    <svg class="h-8" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="5" y="10" width="4" height="30" rx="2" fill="#bfff00" />
+                        <rect x="13" y="15" width="4" height="20" rx="2" fill="#bfff00" />
+                        <rect x="21" y="8" width="4" height="34" rx="2" fill="#bfff00" />
+                        <path d="M29 15 C38 15, 38 35, 29 35" stroke="#bfff00" stroke-width="4"
+                            stroke-linecap="round" />
+                    </svg>
+                    <span class="text-sm font-sans text-white/60">&copy; 2026 NIApoliton Technologies. All rights
+                        reserved.</span>
+                </div>
+                <div class="flex items-center gap-10 text-white/40 text-xs font-sans uppercase tracking-widest">
+                    <a href="b_Niapoliton_Site.html" class="hover:text-prism-lime transition-all duration-300">Home</a>
+                    <span class="text-white/10 text-lg">|</span>
+                    <span class="text-prism-lime">Games Portal</span>
+                </div>
+            </div>
+        </footer>
+
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const track = document.getElementById('marquee-track');
+                // Clone cards for infinite loop effect
+                const cards = Array.from(track.children);
+                cards.forEach(card => {
+                    const clone = card.cloneNode(true);
+                    track.appendChild(clone);
+                });
+                // Apply animation after cloning to ensure consistent speed and seamless transition
+                track.classList.add('marquee-animate');
+            });
+        </script>
+</body>
+
+</html>
