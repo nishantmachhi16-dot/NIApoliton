@@ -213,8 +213,8 @@ input[type=text] {
     font-size: larger;
     font-family: sans-serif;
     font-weight: lighter;
-    font-variant:normal;
-    font-variant-caps:normal;
+    font-variant: normal;
+    font-variant-caps: normal;
 
     text-align: center;
     text-decoration: none;
@@ -336,4 +336,53 @@ input[type=submit].loading {
     opacity: 0.5;
     cursor: not-allowed;
     filter: grayscale(1);
+}
+
+
+@media (max-width: 640px) {
+
+    #beat-a {
+
+        font-size: 100%;
+
+    }
+
+
+    .textbox{
+
+        height: 80vh;
+        width: 80vw;
+
+        margin-right: 15px;
+
+
+    }
+
+    .textbox:hover{
+        height: 85vh;
+    }
+
+
+
+
+input[type=submit] {
+
+    height: 10vh;
+    width: 70vw;
+
+}
+
+
+
+
+input[type=text] {
+    height: 10vh;
+    width: 70vw;
+}
+
+input[type=text]:hover {
+    width: 75vw;
+}
+
+
 }
